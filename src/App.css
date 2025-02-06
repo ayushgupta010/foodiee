@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+  font-family:'Poppins', 'sen-serif';
+}
 body{
   background: rgb(244,244,244);
 }
 html, body, #root {
   width: 100%;
   height: 100%;
-  overflow: hidden; /* Hides scrollbars */
+  overflow: auto; /* Hides scrollbars */
 }

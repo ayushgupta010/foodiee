@@ -6,7 +6,7 @@ function Fooditem(props) {
     
 
     return (
-        <div className='flex flex-wrap gap-10 justify-center'>
+        <div className='flex flex-wrap gap-10 justify-center lg:justify-start mx-6 my-10'>
             {
                 FoodData.map((food)=>{
                 return( <FoodCard 

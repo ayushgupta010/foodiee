@@ -11,6 +11,7 @@ function Fooditem(props) {
                 FoodData.map((food)=>{
                 return( <FoodCard 
                 key={food.id} 
+                id={food.id}
                 img={food.img}
                 desc={food.desc}
                 price={food.price}

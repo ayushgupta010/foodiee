@@ -13,7 +13,7 @@ function Cart(props) {
     const [activeCrat, setActiveCart] = useState(true);
 
     const cartItems=useSelector((state)=>state.cart.cart)
-    console.log(cartItems);
+    console.log("Cart Items from Redux:", cartItems);
     return (
         <>
             <div className={`fixed right-0 top-0 w-full lg:w-[20vw] h-full p-5 bg-white
@@ -25,7 +25,26 @@ function Cart(props) {
                     <IoMdClose onClick={()=>setActiveCart(!activeCrat)} className='border-2 border-b-gray-600 text-gray-600 font-bold
                     p-1 rounded-md hover:text-red-300 hover:border-red-300 cursor-pointer'/>
                 </div>
-                <ItemCart/>
+                
+                
+                {
+                  cartItems.length>0 ? cartItems.map((food)=>{
+                    return (
+                    <ItemCart
+                    key={food.id}
+                    id={food.id}
+                    name={food.name}
+                    price={food.price}
+                    img={food.img}
+                    qty={food.qty}
+                    />
+                    );
+                  }) : <h2>Your Cart is empty</h2> 
+                }
+                
+    
+
+                
                 <div className='absolute bottom-0'>
                     <h3 className='font-semibold text-gray-800'>Item:</h3>
                     <h3 className='font-semibold text-gray-800'> Total Amount:</h3>
@@ -35,7 +54,12 @@ function Cart(props) {
                  </div>
             </div>
 
-            <IoCartOutline onClick={()=>setActiveCart(!activeCrat)} className='rounded-full bg-white text-3xl shadow-md fixed bottom-4 right-10' />
+            {!activeCrat && (
+                <IoCartOutline onClick={() => setActiveCart(true)} 
+                  className='rounded-full bg-white text-3xl shadow-md fixed bottom-4 right-10' />
+                )}
+
+           
         </>
     )
 }

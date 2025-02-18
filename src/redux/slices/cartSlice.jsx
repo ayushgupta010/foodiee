@@ -22,8 +22,17 @@ const cartSlice = createSlice({
     removeFromCart: (state, action)=>{
         state.cart = state.cart.filter((item) => item.id !== action.payload.id);
     },
+    increamentQty: (state, action)=>{
+      state.cart=state.cart.map((item) =>
+      item.id === action.payload.id ? {...item, qty: item.qty+1} :item);
+    },
+    decreamentQty: (state, action)=>{
+      state.cart = state.cart.map((item)=>
+      item.id === action.payload.id ? {...item, qty: item.qty-1}
+      :item);
+    },
   },
 });
-export const { addToCart, removeFromCart} = cartSlice.actions;
+export const { addToCart, removeFromCart, increamentQty, decreamentQty} = cartSlice.actions;
 
 export default cartSlice.reducer;

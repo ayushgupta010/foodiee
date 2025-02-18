@@ -2,7 +2,7 @@ import React from 'react'
 import { FaPlus, FaMinus } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
 import { useDispatch } from 'react-redux';
-import { removeFromCart } from '../redux/slices/cartSlice';
+import { removeFromCart, increamentQty, decreamentQty } from '../redux/slices/cartSlice';
 
 function ItemCart({id, name, qty, price, img}) {
     const dispatch = useDispatch();
@@ -23,10 +23,14 @@ function ItemCart({id, name, qty, price, img}) {
                 <div className='flex justify-between'>
                     <span className='text-green-500 font-bold'>₹{price}</span>
                     <div className='flex justify-center items-center gap-2 absolute right-7'>
-                        <FaPlus  className='border-2 border-gray-500 text-gray-600 hover:text-white hover:bg-green-500 hover:border-none rounded-md 
+                        <FaMinus onClick={()=>{
+                           qty >1? dispatch(decreamentQty({id })) : (qty=0)
+                        }} className='border-2 border-gray-500 text-gray-600 hover:text-white  hover:bg-green-500 hover:border-none rounded-md 
                         p-1 text-xl transition-all ease-linear cursor-pointer '/>
-                        <span>{qty}</span>
-                        <FaMinus className='border-2 border-gray-500 text-gray-600 hover:text-white  hover:bg-green-500 hover:border-none rounded-md 
+                            <span>{qty}</span>
+                        <FaPlus onClick={()=>{
+                            dispatch(increamentQty({id}))
+                        }} className='border-2 border-gray-500 text-gray-600 hover:text-white hover:bg-green-500 hover:border-none rounded-md 
                         p-1 text-xl transition-all ease-linear cursor-pointer '/>
                     </div>
                 </div>

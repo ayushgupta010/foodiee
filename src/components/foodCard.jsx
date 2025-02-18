@@ -3,7 +3,7 @@ import { GoStarFill } from "react-icons/go";
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/slices/cartSlice';
 
-function FoodCard({name, id, rating, desc, img, price}) {
+function FoodCard({name, id, rating, desc, img, price, handletoast}) {
     const dispatch = useDispatch();
     
 
@@ -24,6 +24,7 @@ function FoodCard({name, id, rating, desc, img, price}) {
                </span>
                <button onClick={()=>{
                 dispatch(addToCart({name, id, rating, desc, img, price, qty:1}))
+                handletoast();
                }} className='p-1 text-white bg-green-500 rounded-lg text-sm hover:scale-110 transition-all duration-500'>
                  Add to Cart</button>
             </div>

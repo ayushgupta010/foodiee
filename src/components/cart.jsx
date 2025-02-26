@@ -4,6 +4,7 @@ import { IoMdClose } from "react-icons/io";
 import ItemCart from './itemCart';
 import { useSelector } from 'react-redux';
 import { IoCartOutline } from "react-icons/io5";
+import {useNavigate} from "react-router-dom"
 
 
 
@@ -11,6 +12,8 @@ import { IoCartOutline } from "react-icons/io5";
 function Cart(props) {
 
     const [activeCrat, setActiveCart] = useState(false);
+
+    const navigate = useNavigate();
 
     const cartItems=useSelector((state)=>state.cart.cart)
     console.log("Cart Items from Redux:", cartItems);
@@ -51,9 +54,11 @@ function Cart(props) {
                 
                 <div className='absolute bottom-0'>
                     <h3 className='font-semibold text-gray-800'>Item: {totalQty}</h3>
-                    <h3 className='font-semibold text-gray-800'> Total Amount:{totalAmt}</h3>
+                    <h3 className='font-semibold text-gray-800'> Total Amount:₹{totalAmt}</h3>
                     <hr className='w-[90vw] lg:w-[18vw]'/>
-                    <button className='bg-green-500 font-bold text-white my-2 py-2 rounded-lg
+                    <button 
+                    onClick={()=>navigate("/success")}
+                    className='bg-green-500 font-bold text-white my-2 py-2 rounded-lg
                     w-[90vw] lg:w-[18vw] hover:scale-105 transition-all duration-500'>checkout</button>
                  </div>
             </div>

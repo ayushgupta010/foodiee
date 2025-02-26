@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/navbar';
-import Catogery from '../components/catogery';
+import Category from '../components/category';
 import Fooditem from '../components/fooditem';
 import Cart from '../components/cart';
 
@@ -10,7 +10,7 @@ function Home(props) {
     return (
         <>
            <Navbar/>
-           <Catogery/>
+           <Category/>
            <Fooditem/>
            <Cart/>
            {/* <h1 className=''>home</h1>  */}

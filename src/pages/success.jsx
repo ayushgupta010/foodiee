@@ -1,12 +1,29 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import {BeatLoader} from "react-spinners"
 
 function Success(props) {
-    
+    const [loader, setloader] = useState(true);
+
+    useEffect(() => {
+        setTimeout(()=>{
+            setloader(false);
+        },2000)
+    }, [])
 
     return (
         <>
-            <h1 className='text-3xl'>success</h1>
-            <button onClick={() => window.location = '/'}> home</button>
+            <div className='flex flex-col items-center justify-center h-screen'>
+                {
+                    loader ?  <BeatLoader /> :
+                    (
+                        <div>      
+                        <h2 className='text-3xl font-semibold mb-4'>Order Successful!</h2>
+                        <p>Your order has been Successfully placed</p>
+                        </div>
+                    )
+                }
+                
+            </div>
         </>
     )
 }

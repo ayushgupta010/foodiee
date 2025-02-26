@@ -1,6 +1,10 @@
 import React from 'react'
+import { setSearch } from '../redux/slices/scearchSlice'
+import { useDispatch } from 'react-redux'
 
 function Navbar(props) {
+    const dispatch = useDispatch();
+
     return (
         <nav className='flex flex-col lg:flex-row  justify-between mx-7 my-5 mb-10'> 
             <div className='content-start '>
@@ -8,13 +12,15 @@ function Navbar(props) {
                <h1 className='text-2xl font-bold'>Foodiee</h1>
             </div>
             <div>
-                <input className='p-3 border border-gray-500 rounded-lg outline-none w-full lg:w-[30vw]'
-                type="text"
-                id=''
-                name='serach'
-                placeholder='search here'
-                autoComplete='off'
-                
+                <input 
+                  type="text"
+                  id=''
+                  name='serach'
+                  placeholder='search here'
+                  autoComplete='off'
+                  onChange={(e)=> dispatch(setSearch(e.target.value))}
+                  className='p-3 border border-gray-500 rounded-lg outline-none w-full lg:w-[30vw]'
+              
                 />
             </div>
         </nav>

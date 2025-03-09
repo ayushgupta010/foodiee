@@ -58,7 +58,7 @@ function Cart(props) {
                     <hr className='w-[90vw] lg:w-[18vw]'/>
                     <button 
                     onClick={()=>navigate("/success")}
-                    className='bg-green-500 font-bold text-white my-2 py-2 rounded-lg
+                    className='bg-yellow-300 font-bold text-white my-2 py-2 rounded-lg
                     w-[90vw] lg:w-[18vw] hover:scale-105 transition-all duration-500'>checkout</button>
                  </div>
             </div>

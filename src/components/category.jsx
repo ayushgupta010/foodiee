@@ -27,9 +27,9 @@ function Category(props) {  // Fixed component name
                         onClick={() =>   
                             dispatch(setCategory("All"))
                         }
-                        className={`px-3 py-2 bg-gray-200 rounded-lg font-bold hover:bg-green-500 hover:text-amber-50 
+                        className={`px-3 py-2 bg-gray-200 rounded-lg font-bold hover:bg-yellow-300 hover:text-amber-50 
                             ${ selectedCategory === "All"
-                                && "bg-green-500 text-amber-50"
+                                && "bg-yellow-300 text-amber-50"
                          }`}
                     >
                         All
@@ -40,10 +40,10 @@ function Category(props) {  // Fixed component name
                         onClick={() =>
                             dispatch(setCategory(category))
                         }
-                        className={`px-3 py-2 bg-gray-200 rounded-lg font-bold hover:bg-green-500 hover:text-amber-50
+                        className={`px-3 py-2 bg-gray-200 rounded-lg font-bold hover:bg-yellow-300 hover:text-amber-50
                             ${
                                  selectedCategory === category
-                                && "bg-green-500 text-amber-50"
+                                && "bg-yellow-300 text-amber-50"
                             }`}
                     >
                         {category}

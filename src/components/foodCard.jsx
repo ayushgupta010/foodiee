@@ -15,7 +15,7 @@ function FoodCard({name, id, rating, desc, img, price, handleToast}) {
             />
             <div className='text-sm flex justify-between'>
                 <h2>{name}</h2>
-                <span className='text-green-500 '>₹{price}</span>
+                <span className='text-yellow-300 '>₹{price}</span>
             </div>
             <p className='text-sm font-normal'>{desc.slice(0,50)}....</p>
             <div className='flex justify-between'>
@@ -25,7 +25,7 @@ function FoodCard({name, id, rating, desc, img, price, handleToast}) {
                <button onClick={()=>{
                 dispatch(addToCart({name, id, rating, desc, img, price, qty:1}));
                 handleToast(name);
-               }} className='p-1 text-white bg-green-500 rounded-lg text-sm hover:scale-110 transition-all duration-500'>
+               }} className='p-1 text-white bg-yellow-300 rounded-lg text-sm hover:scale-110 transition-all duration-500'>
                  Add to Cart</button>
             </div>
             

@@ -21,16 +21,16 @@ function ItemCart({id, name, qty, price, img}) {
             <div className='leading-5'>
                 <h2 className='font-bold text-gray-800'>{name} </h2>
                 <div className='flex justify-between'>
-                    <span className='text-green-500 font-bold'>₹{price}</span>
+                    <span className='text-yellow-300 font-bold'>₹{price}</span>
                     <div className='flex justify-center items-center gap-2 absolute right-7'>
                         <FaMinus onClick={()=>{
                            qty >1? dispatch(decreamentQty({id })) : (qty=0)
-                        }} className='border-2 border-gray-500 text-gray-600 hover:text-white  hover:bg-green-500 hover:border-none rounded-md 
+                        }} className='border-2 border-gray-500 text-gray-600 hover:text-white  hover:bg-yellow-300 hover:border-none rounded-md 
                         p-1 text-xl transition-all ease-linear cursor-pointer '/>
                             <span>{qty}</span>
                         <FaPlus onClick={()=>{
                             dispatch(increamentQty({id}))
-                        }} className='border-2 border-gray-500 text-gray-600 hover:text-white hover:bg-green-500 hover:border-none rounded-md 
+                        }} className='border-2 border-gray-500 text-gray-600 hover:text-white hover:bg-yellow-300 hover:border-none rounded-md 
                         p-1 text-xl transition-all ease-linear cursor-pointer '/>
                     </div>
                 </div>
